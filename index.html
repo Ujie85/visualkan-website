@@ -1100,6 +1100,15 @@
     transition:background .2s,border-color .2s;
   }
   .reader-close:hover{background:#2A2A2A;border-color:#2A2A2A}
+  /* Right-hand group of the overlay bars — language toggle + close button.
+     The toggle reuses the header's .lang-switch styling verbatim and is
+     wired to the same applyLang state, so all three toggles stay in sync. */
+  .reader-bar-actions{display:flex;align-items:center;gap:clamp(10px,2vw,18px);flex:none}
+  .reader-bar-in .reader-kicker{min-width:0}
+  @media(max-width:640px){
+    .reader-bar-actions{gap:8px}
+    .reader-close{padding:0 12px;min-height:40px;font-size:11px;letter-spacing:.1em}
+  }
   .reader-body{max-width:820px;margin:0 auto;padding:clamp(28px,4.5vw,56px) var(--inset) clamp(56px,7vw,88px)}
   .reader-hero{margin:0 0 clamp(26px,3.6vw,40px);overflow:hidden;background:#111}
   .reader-hero img{width:100%;aspect-ratio:16/9;object-fit:cover}
@@ -2060,7 +2069,14 @@
   <div class="reader-bar">
     <div class="reader-bar-in">
       <span class="reader-kicker" data-i18n-html="arch.kicker">Articles — <b>Archive</b></span>
-      <button class="reader-close" id="archiveClose" type="button"><span aria-hidden="true">←</span> <span data-i18n="arch.back">Back</span></button>
+      <div class="reader-bar-actions">
+        <div class="lang-switch" role="group" aria-label="Language / Bahasa">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+        <button class="reader-close" id="archiveClose" type="button"><span aria-hidden="true">←</span> <span data-i18n="arch.back">Back</span></button>
+      </div>
     </div>
   </div>
   <div class="archive-body">
@@ -2180,7 +2196,14 @@
   <div class="reader-bar">
     <div class="reader-bar-in">
       <span class="reader-kicker"><span data-i18n="reader.kicker">Articles</span> — <b id="readerKickerCat"></b></span>
-      <button class="reader-close" id="readerClose" type="button"><span aria-hidden="true">←</span> <span data-i18n="reader.all">All Articles</span></button>
+      <div class="reader-bar-actions">
+        <div class="lang-switch" role="group" aria-label="Language / Bahasa">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+        <button class="reader-close" id="readerClose" type="button"><span aria-hidden="true">←</span> <span data-i18n="reader.all">All Articles</span></button>
+      </div>
     </div>
   </div>
   <div class="reader-body">
@@ -3155,7 +3178,7 @@
       "art.featured.aria":"Baca artikel: AI in the Director's Toolkit",
       "arch.kicker":"Artikel — <b>Arsip</b>", "arch.back":"Kembali",
       "arch.title":"Semua <b>Artikel.</b>",
-      "arch.sub":"Setiap catatan dari studio tentang seni dan teknologi pembuatan film — industrinya, kameranya, penyuntingannya, dan perangkat yang mengubah cara film dibuat.",
+      "arch.sub":"Semua catatan dari studio tentang craft dan teknologi pembuatan film — industrinya, kameranya, editnya, dan alat-alat yang mengubah cara film dibuat.",
       "reader.kicker":"Artikel", "reader.all":"Semua Artikel",
       "reader.byline":"Oleh <b>Visualkan Editorial</b>", "reader.next":"Artikel Berikutnya",
       "cta.eyebrow":"Kontak — Jadwalkan Pertemuan",
