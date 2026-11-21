@@ -1426,35 +1426,40 @@
   .cta .eyebrow{color:#8B8B85}
   .cta h2{font-size:clamp(42px,7.6vw,104px);font-weight:300;letter-spacing:-.03em;line-height:1.02;margin:22px 0 0}
   .cta h2 b{font-weight:800;display:block}
-  /* VISUALKAN — outline treatment like STORY, but a white edge so it
-     stays legible on the CTA's black background (hollow fill) */
-  .cta h2 .brand-word{position:relative;color:transparent;-webkit-text-stroke:.035em #fff;padding:0 .07em;margin:0 -.07em}
-  /* The CHEMISTRY sweep rhythm, applied to VISUALKAN — but with NO
-     block behind the letters: a duplicate of the word in solid-filled
-     glyphs (no background at all) stacked exactly on top of the
-     outline base and revealed by the same clip-path, driven by the
-     very same hlBlock keyframes, cycle, duration and easing as .hl
-     in the About tagline panel, and gated on the headline's .in
-     reveal class just as CHEMISTRY is gated on its panel's. Wherever
-     the sweep has passed, the glyphs read solid white fill while the
-     still-uncovered part stays white outline on the black CTA — a
-     wave of fill flowing through the letters, the boundary slicing
-     through glyphs at the clip's moving edge, with no rectangle
-     behind the text at any point. Outside the sweep the duplicate is
-     clipped away entirely, so the word is plain outline again. The
-     duplicate carries the base word's stroke width in its own fill
-     colour so its silhouette matches the outline's exactly (CHEMISTRY
-     needs no stroke because its base word has none). */
-  .cta h2 .brand-word::after{
+  /* VISUALKAN — plain solid fill: no outline, no sweep. The treatment
+     was swapped per request: outline + sweep now live on the words
+     "Let's" and "it." around it (see .fx-word below). */
+  .cta h2 .brand-word{color:#fff}
+  /* "Let's" and "it." — outline treatment like STORY, but a white edge
+     so they stay legible on the CTA's black background (hollow fill),
+     plus the CHEMISTRY sweep rhythm with NO block behind the letters:
+     a duplicate of each word in solid-filled glyphs (no background at
+     all) stacked exactly on top of the outline base and revealed by
+     the same clip-path, driven by the very same hlBlock keyframes,
+     cycle, duration and easing as .hl in the About tagline panel, and
+     gated on the headline's .in reveal class just as CHEMISTRY is
+     gated on its panel's. Both words carry the identical animation
+     shorthand, so their sweeps run in sync. Wherever the sweep has
+     passed, the glyphs read solid white fill while the still-uncovered
+     part stays white outline on the black CTA — a wave of fill flowing
+     through the letters, the boundary slicing through glyphs at the
+     clip's moving edge, with no rectangle behind the text at any
+     point. Outside the sweep the duplicate is clipped away entirely,
+     so the words are plain outline again. The duplicate carries the
+     base word's stroke width in its own fill colour so its silhouette
+     matches the outline's exactly (CHEMISTRY needs no stroke because
+     its base word has none). */
+  .cta h2 .fx-word{position:relative;color:transparent;-webkit-text-stroke:.035em #fff;padding:0 .07em;margin:0 -.07em}
+  .cta h2 .fx-word::after{
     content:attr(data-text);
     position:absolute;inset:0;padding:0 .07em;box-sizing:border-box;
     color:#fff;-webkit-text-fill-color:#fff;-webkit-text-stroke:.035em #fff;
-    text-transform:uppercase;white-space:nowrap;pointer-events:none;
+    white-space:nowrap;pointer-events:none;
     clip-path:inset(0 100% 0 0);will-change:clip-path;
   }
-  .cta h2.in .brand-word::after{animation:hlBlock 7s ease-in-out 1.2s infinite}
+  .cta h2.in .fx-word::after{animation:hlBlock 7s ease-in-out 1.2s infinite}
   @media (prefers-reduced-motion: reduce){
-    .cta h2.in .brand-word::after,.cta h2 .brand-word::after{animation:none;clip-path:inset(0 100% 0 0)}
+    .cta h2.in .fx-word::after,.cta h2 .fx-word::after{animation:none;clip-path:inset(0 100% 0 0)}
   }
   .cta .sub{font-size:16.5px;line-height:1.7;color:#B9B9B3;max-width:52ch;margin:26px 0 0}
   .cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
@@ -1800,10 +1805,11 @@
   html[data-theme="dark"] .cta{background:#F5F5F5;color:#0B0B0B}
   html[data-theme="dark"] .cta .eyebrow{color:#6E6E68}
   html[data-theme="dark"] .cta .eyebrow::before{background:#0B0B0B}
-  html[data-theme="dark"] .cta h2 .brand-word{color:transparent;-webkit-text-stroke:.035em #0B0B0B}
-  /* VISUALKAN sweep inverts in dark mode: no block either — the
+  html[data-theme="dark"] .cta h2 .brand-word{color:#0B0B0B}
+  html[data-theme="dark"] .cta h2 .fx-word{color:transparent;-webkit-text-stroke:.035em #0B0B0B}
+  /* "Let's" / "it." sweep inverts in dark mode: no block either — the
      swept glyphs read as solid black fill over the black outline */
-  html[data-theme="dark"] .cta h2 .brand-word::after{color:#0B0B0B;-webkit-text-fill-color:#0B0B0B;-webkit-text-stroke:.035em #0B0B0B}
+  html[data-theme="dark"] .cta h2 .fx-word::after{color:#0B0B0B;-webkit-text-fill-color:#0B0B0B;-webkit-text-stroke:.035em #0B0B0B}
   html[data-theme="dark"] .cta .sub{color:#55554F}
   html[data-theme="dark"] .btn-white{background:#0B0B0B;color:#fff;border-color:#0B0B0B}
   html[data-theme="dark"] .btn-white:hover{background:#2A2A2A;border-color:#0B0B0B;color:#fff}
@@ -2615,7 +2621,7 @@
   <section class="cta" id="contact">
     <div class="wrap">
       <p class="eyebrow rv" data-i18n="cta.eyebrow">Contact — Book a Meeting</p>
-      <h2 class="rv" data-i18n-html="cta.h2">Tell us your story.<b>Let's <span class="brand-word" data-text="VISUALKAN">VISUALKAN</span> it.</b></h2>
+      <h2 class="rv" data-i18n-html="cta.h2">Tell us your story.<b><span class="fx-word" data-text="Let's">Let's</span> <span class="brand-word">VISUALKAN</span> <span class="fx-word" data-text="it.">it.</span></b></h2>
       <p class="sub rv" data-i18n="cta.sub">One email is all it takes. Tell us the story you want to tell — a film, a commercial, a series — and we will answer with a direction, not a form.</p>
       <div class="cta-actions rv">
         <a class="btn-white" href="mailto:halo@visualkan.id?subject=Book%20a%20Meeting%20—%20Visualkan" data-i18n="cta.book">Book a Meeting</a>
@@ -3934,7 +3940,7 @@
       "reader.kicker":"Articles", "reader.all":"All Articles",
       "reader.byline":"By <b>Visualkan Editorial</b>", "reader.next":"Next Article",
       "cta.eyebrow":"Contact — Book a Meeting",
-      "cta.h2":"Tell us your story.<b>Let's <span class=\"brand-word\" data-text=\"VISUALKAN\">VISUALKAN</span> it.</b>",
+      "cta.h2":"Tell us your story.<b><span class=\"fx-word\" data-text=\"Let's\">Let's</span> <span class=\"brand-word\">VISUALKAN</span> <span class=\"fx-word\" data-text=\"it.\">it.</span></b>",
       "cta.sub":"One email is all it takes. Tell us the story you want to tell — a film, a commercial, a series — and we will answer with a direction, not a form.",
       "cta.book":"Book a Meeting", "cta.works":"See Our Works ↑", "cta.wa":"Let's Discuss on WhatsApp",
       "cta.wa.aria":"Let's Discuss on WhatsApp — 0856-2411-0857",
@@ -4015,7 +4021,7 @@
       "reader.kicker":"Artikel", "reader.all":"Semua Artikel",
       "reader.byline":"Oleh <b>Redaksi Visualkan</b>", "reader.next":"Artikel Berikutnya",
       "cta.eyebrow":"Kontak — Jadwalkan Pertemuan",
-      "cta.h2":"Ceritakan kisahmu.<b>Biar kami yang <span class=\"brand-word\" data-text=\"VISUALKAN\">VISUALKAN</span>.</b>",
+      "cta.h2":"Ceritakan kisahmu.<b>Biar kami yang <span class=\"brand-word\">VISUALKAN</span>.</b>",
       "cta.sub":"Cukup satu email. Ceritakan kisah yang ingin kamu sampaikan — sebuah film, iklan, atau serial — dan kami balas dengan arahan yang jelas, bukan formulir.",
       "cta.book":"Jadwalkan Pertemuan", "cta.works":"Lihat Karya Kami ↑", "cta.wa":"Diskusikan via WhatsApp",
       "cta.wa.aria":"Diskusikan via WhatsApp — 0856-2411-0857",
