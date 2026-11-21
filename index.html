@@ -1426,30 +1426,35 @@
   .cta .eyebrow{color:#8B8B85}
   .cta h2{font-size:clamp(42px,7.6vw,104px);font-weight:300;letter-spacing:-.03em;line-height:1.02;margin:22px 0 0}
   .cta h2 b{font-weight:800;display:block}
-  /* VISUALKAN — plain solid fill: no outline, no sweep. The treatment
-     was swapped per request: outline + sweep now live on the words
-     "Let's" and "it." around it (see .fx-word below). */
+  /* VISUALKAN — in the BASE line it stays plain solid fill; the
+     outline + sweep treatment lives on "Let's" and "it." around it
+     (see .fx-word below), and inside the sweep layer VISUALKAN
+     reverses (see .cta-sweep .brand-word below). */
   .cta h2 .brand-word{color:#fff}
   /* "Let's" and "it." — outline treatment like STORY, but a white edge
      so they stay legible on the CTA's black background (hollow fill).
      The sweep is ONE continuous wave across the whole second line,
      not per word: a single duplicate of the ENTIRE line ("Let's
-     VISUALKAN it.", every word in solid-filled glyphs, no background
-     or block at all) is stacked exactly on top of the base line inside
-     .cta-line and revealed by ONE clip-path that travels from the
-     start of "Let's" to the end of "it." — so the fill flows unbroken
-     across all three words, straight through the word boundaries and
-     across the already-solid VISUALKAN, driven by the very same
+     VISUALKAN it.", no background or block at all) is stacked exactly
+     on top of the base line inside .cta-line and revealed by ONE
+     clip-path that travels from the start of "Let's" to the end of
+     "it." — so the wave flows unbroken across all three words,
+     straight through the word boundaries, driven by the very same
      hlBlock keyframes, 7s cycle and easing as .hl (CHEMISTRY) in the
      About tagline panel, and gated on the headline's .in reveal class
-     just as CHEMISTRY is gated on its panel's. Wherever the sweep has
-     passed, the outline glyphs read solid white fill while the
-     still-uncovered part stays white outline on the black CTA, the
-     boundary slicing through glyphs at the clip's moving edge.
+     just as CHEMISTRY is gated on its panel's. Inside the duplicate
+     the treatments REVERSE: "Let's" and "it." are solid-filled, so
+     wherever the wave has passed they read solid white while the
+     still-uncovered part stays white outline on the black CTA; and
+     VISUALKAN is the outline version — its glyph interiors are
+     painted with the CTA's own black so the solid base word beneath
+     is covered and the word reads hollow (white outline only) while
+     the wave is over it, the exact opposite of its neighbours. The
+     boundary slices through glyphs at the clip's moving edge.
      Outside the sweep the duplicate is clipped away entirely, so the
-     line is back to its normal state. The duplicate's outline words
-     carry the base words' stroke width in their own fill colour so
-     their silhouettes match the outlines exactly (CHEMISTRY needs no
+     line is back to its normal state. The duplicate's words carry
+     the base words' stroke width in their own colour so their
+     silhouettes match the base glyphs exactly (CHEMISTRY needs no
      stroke because its base word has none). */
   .cta h2 .cta-line{position:relative}
   .cta h2 .fx-word{color:transparent;-webkit-text-stroke:.035em #fff;padding:0 .07em;margin:0 -.07em}
@@ -1458,6 +1463,11 @@
     clip-path:inset(0 100% 0 0);will-change:clip-path;
   }
   .cta h2 .cta-sweep .fx-word{color:#fff;-webkit-text-fill-color:#fff}
+  /* VISUALKAN inside the sweep — the reverse of its neighbours:
+     hollow outline (white stroke, interior painted the CTA black so
+     the solid base glyph underneath cannot show through) instead of
+     the solid fill the base word has. */
+  .cta h2 .cta-sweep .brand-word{color:var(--black);-webkit-text-fill-color:var(--black);-webkit-text-stroke:.035em #fff}
   .cta h2.in .cta-sweep{animation:hlBlock 7s ease-in-out 1.2s infinite}
   @media (prefers-reduced-motion: reduce){
     .cta h2.in .cta-sweep,.cta h2 .cta-sweep{animation:none;clip-path:inset(0 100% 0 0)}
@@ -1809,8 +1819,12 @@
   html[data-theme="dark"] .cta h2 .brand-word{color:#0B0B0B}
   html[data-theme="dark"] .cta h2 .fx-word{color:transparent;-webkit-text-stroke:.035em #0B0B0B}
   /* The whole-line sweep inverts in dark mode: no block either — the
-     swept glyphs read as solid black fill over the black outline */
+     swept "Let's"/"it." glyphs read as solid black fill over the
+     black outline, and the swept VISUALKAN reverses the other way:
+     black outline with its interior painted the CTA's light
+     background, so it reads hollow over its solid black base word */
   html[data-theme="dark"] .cta h2 .cta-sweep .fx-word{color:#0B0B0B;-webkit-text-fill-color:#0B0B0B;-webkit-text-stroke:.035em #0B0B0B}
+  html[data-theme="dark"] .cta h2 .cta-sweep .brand-word{color:#F5F5F5;-webkit-text-fill-color:#F5F5F5;-webkit-text-stroke:.035em #0B0B0B}
   html[data-theme="dark"] .cta .sub{color:#55554F}
   html[data-theme="dark"] .btn-white{background:#0B0B0B;color:#fff;border-color:#0B0B0B}
   html[data-theme="dark"] .btn-white:hover{background:#2A2A2A;border-color:#0B0B0B;color:#fff}
