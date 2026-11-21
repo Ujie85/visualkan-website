@@ -2841,11 +2841,125 @@
     }
   };
   var ARTICLE_ORDER = ["directing-real-people", "shooting-vertical-thinking-cinema", "light-that-feels-like-life", "ai-in-filmmaking", "production-house-streaming-era", "choosing-the-right-camera", "the-invisible-cut", "color-is-a-character", "sound-design-half-the-film"];
-  /* Reader meta follows the UI language — article titles, excerpts and body
-     stay English; only the category label and read-time unit translate */
+  /* Reader meta and article text follow the UI language — category label and
+     read-time unit via the dictionary, title / excerpt / body via ARTICLES_ID */
   var CAT_ID = { 'AI & Filmmaking':'AI & Pembuatan Film', 'Industry':'Industri', 'Camera':'Kamera', 'Editing':'Penyuntingan', 'Post-Production':'Pasca-Produksi', 'Sound':'Tata Suara', 'Directing':'Penyutradaraan', 'Cinematography':'Sinematografi' };
   function catLabel(c){ return (curLang === 'id' && CAT_ID[c]) ? CAT_ID[c] : c; }
   function readLabel(r){ return curLang === 'id' ? r.replace('min read', 'menit baca') : r; }
+  /* Full Indonesian versions of all nine articles — title, excerpt and body,
+     embedded exactly from the approved translation file and paired by id with
+     the English versions in ARTICLES above. When the active language is ID,
+     every article surface (featured card, main cards, archive rows, reader)
+     renders these; EN renders the originals. */
+  var ARTICLES_ID = {
+    "directing-real-people": {
+      title: "Mengarahkan Orang Biasa: Penampilan Jujur dari Non-Aktor",
+      excerpt: "Wajah paling bisa dipercaya di sebuah iklan sering kali adalah orang yang tidak pernah berakting. Bagaimana sutradara membantu orang biasa melupakan kamera — dan kenapa brand terus memintanya.",
+      body: [
+        "Sebagian penampilan paling meyakinkan di iklan tidak pernah datang dari aktor. Mereka datang dari petani kopi yang sudah memetik biji selama tiga puluh tahun, mekanik kereta dengan tangan yang akrab oli, atau nenek yang memasak resep yang sama sejak kecil. Penonton mendeteksi ketulusan yang dilatih dalam sedetik; wajah sungguhan membawa kehidupan yang sudah dijalani di dalamnya, dan tidak ada sesi casting yang bisa memproduksi itu.",
+        "Pekerjaan pertama sutradara bukan penampilan — melainkan menghilangkan rasa takut. Non-aktor jarang takut pada adegannya; mereka takut terlihat bodoh di depan orang asing. Jadi set-nya diperkecil: kru lebih sedikit, kamera sudah merekam di tengah obrolan biasa, tanpa teriakan \"action\" yang teatrikal. Ngobrol dulu, shooting belakangan. Saat take yang sesungguhnya dimulai, rasanya harus seperti kelanjutan obrolan, bukan awal ujian.",
+        "Arahan pun berubah jadi percakapan, bukan instruksi. \"Tunjukkan wajah bangga\" menghasilkan seringai; \"tunjukkan cara Bapak tahu bijinya sudah siap\" menghasilkan kebenaran. Beri orang biasa pekerjaan aslinya untuk dilakukan — tangan yang sibuk membebaskan pikiran, dan penampilannya mengurus dirinya sendiri. Dialog bekerja dengan cara yang sama: naskah adalah peta, bukan kandang. Kalau satu kalimat terasa salah di mulut mereka, biarkan mereka mengucapkannya dengan kata-kata sendiri; maknanya selamat dan kepercayaan penonton berlipat ganda.",
+        "Kesabaran adalah pos budget yang paling menentukan. Take pertama kaku, take ketiga melonggar, dan emasnya sering kali justru momen tepat setelah kalimat selesai — tawa yang tidak dijaga, lirikan ke samping — yang tidak akan pernah ditemukan penampilan bernaskah. Sutradara berpengalaman merekam lebih banyak dan menilai lebih sedikit di set, karena mereka tahu ruang edit akan menemukan apa sebenarnya hari itu.",
+        "Inilah kenapa brand terus meminta orang biasa: kejujuran sudah jadi strategi, bukan sekadar gaya. Wajah yang dipoles bisa menjual produk, tapi wajah yang benar meminjamkan kepercayaannya ke brand. Aturan yang kami pegang saat mengarahkan sederhana — jangan pernah menyuruh orang biasa berpura-pura. Bangun kondisinya supaya mereka bisa menjadi diri sendiri, dan biarkan kamera menyaksikannya."
+      ]
+    },
+    "shooting-vertical-thinking-cinema": {
+      title: "Shooting Vertikal, Berpikir Sinema: 9:16 Tanpa Crop",
+      excerpt: "Video vertikal bukan film horizontal yang dipotong sisi-sisinya. Memperlakukan 9:16 sebagai frame tersendiri — dengan blocking, lensa, dan ritmenya sendiri — adalah pembeda antara konten ponsel dan sinema ponsel.",
+      body: [
+        "Bertahun-tahun video vertikal diperlakukan sebagai pikiran belakangan: shooting iklannya lebar, potong tengahnya di pasca-produksi, dan terima hasil yang terhimpit. Komposisi kehilangan tepinya, produk kehilangan konteksnya, dan wajah melayang di frame yang tidak pernah dirancang untuk mereka. Padahal penonton sekarang hidup di ponsel — dan frame yang memenuhi genggaman mereka layak dapat hormat yang sama seperti frame yang memenuhi bioskop.",
+        "Vertikal mengubah tata bahasa sebuah shot. Ketinggian jadi poros berceritanya: wajah bertumpuk satu di atas yang lain, tangan masuk dari bawah, langit dan tanah bergabung dalam adegan yang akan dipisahkan frame lebar. Blocking ikut berubah — subjek tidak lagi melintasi frame, tapi bergerak mendekati kamera, dan kedalaman mengambil alih pekerjaan yang dulu dilakukan lebar.",
+        "Produksinya harus berkomitmen sejak awal. Komposisi vertikal tempatnya di storyboard dan rapat pra-produksi, bukan di ruang edit. Kamera dipasang untuk frame tinggi atau dimonitor dengan panduan 9:16 yang sebenarnya sejak take pertama; lensa dipilih untuk bidang pandang yang lebih sempit; set didandani ke atas, bukan ke samping. Di hari yang multi-format, versi vertikal adalah deliverable yang direncanakan seperti lainnya — bukan operasi penyelamatan.",
+        "Ritmenya juga berbeda. Penonton ponsel memutuskan dalam dua detik, jadi film vertikal dibuka dengan gambar terkuatnya, subjek dibuat besar, dan zona tempat caption dan tombol akan tinggal ikut dihormati. Tapi dasar-dasarnya tidak bergeser: cahaya tetap membentuk emosi, penampilan tetap membawa makna, dan cerita tetap lebih tinggi dari format.",
+        "Ujian film vertikal yang baik adalah rasa tak terhindarkan — ia harus terasa seolah tidak mungkin berbentuk lain. Kalau itu tercapai, tidak ada yang menyebutnya \"konten\". Orang menyebutnya film yang kebetulan muat di tangan mereka."
+      ]
+    },
+    "light-that-feels-like-life": {
+      title: "Cahaya yang Terasa Hidup: Pencahayaan Praktikal untuk Iklan Sinematik",
+      excerpt: "Cahaya paling sinematik adalah cahaya yang bisa dipercaya penonton: jendela, lampu meja, papan neon. Bagaimana sinematografer membangun adegan di sekitar sumber yang memang milik dunia ceritanya.",
+      body: [
+        "Penonton tidak bisa menamainya, tapi mereka bisa merasakannya: cahaya yang seolah datang dari dunia itu sendiri. Jendela di pagi hari, bola lampu yang menggantung di atas meja dapur, bias biru televisi di ruangan gelap. Saat penonton percaya sumbernya, mereka percaya adegannya — dan semua yang ada di dalamnya, termasuk produknya, mewarisi kebenaran itu.",
+        "Sumber yang terlihat di dalam frame disebut praktikal, dan mereka bekerja ganda. Lampu di meja memberi alasan bagi cahaya-cahaya besar tak terlihat di luar kamera yang sebenarnya mengekspos adegan. Craft-nya ada pada kecocokan: sumber tersembunyi harus sepakat dengan yang terlihat soal arah, warna, dan kelembutan, atau ilusinya diam-diam pecah dan gambarnya mulai terasa seperti iklan dalam arti yang buruk.",
+        "Membangun cahaya yang bisa dipercaya kebanyakan soal menahan diri. Sinematografer mulai dari praktikalnya lalu menambah, bukan mengganti — menukar bola lampu rumah dengan yang bisa dikendalikan, meredupkan alih-alih menyembur, membiarkan sisi jauh sebuah wajah jatuh ke bayangan yang jujur. Sinematik tidak pernah berarti terang; ia berarti disengaja. Kontras adalah tanda tangannya, dan bayangan adalah separuh kosakatanya.",
+        "Wajah yang paling diuntungkan. Cahaya jendela dari samping dan genangan hangat lampu meja membentuk wajah sebagaimana hidup membentuknya, sehingga kulit terlihat seperti kulit dan emosi terbaca tanpa usaha. Produk mendapat keuntungan yang sama: botol yang diterangi bar tempat ia berdiri menjual sebuah dunia, bukan sekadar benda — dan dunia-lah yang diingat orang.",
+        "Setiap cahaya di set harus selamat dari satu pertanyaan: cahaya ini datang dari mana? Kalau kru tidak bisa menjawab, penonton tidak akan percaya. Cahaya yang terasa hidup tidak pernah ditemukan secara kebetulan. Ia dibangun, dengan sabar, satu sumber yang bisa dipercaya pada satu waktu."
+      ]
+    },
+    "ai-in-filmmaking": {
+      title: "AI di Kotak Peralatan Sutradara: Bagaimana Kecerdasan Buatan Kini Mendukung Pembuatan Film",
+      excerpt: "Dari storyboard instan sampai pravisualisasi berbantuan AI, kecerdasan mesin diam-diam jadi asisten produksi yang tidak pernah tidur — sementara mata sutradara tetap yang memegang kendali.",
+      body: [
+        "Kecerdasan buatan masuk ke set film lewat pintu samping: bukan sebagai sutradara robot, tapi sebagai asisten yang tidak kenal lelah di tahap pra-produksi. Storyboard yang dulu butuh waktu seharian kini bisa dibuat versi drafnya dalam hitungan menit dari sebuah shot list. Sutradara dan klien pun punya bahasa visual yang sama jauh sebelum kamera pertama dinyalakan. Buat rumah produksi, kecepatan ini mengubah cara berbincang — ide bisa diuji, ditolak, dan dipertajam selagi biayanya masih murah.",
+        "Perubahannya paling terasa di pravisualisasi. Previs berbantuan AI memungkinkan tim mengatur gerakan kamera, pilihan lensa, dan suasana cahaya di dalam versi virtual dari lokasi aslinya. Saat hari shooting tiba, kru bukan lagi bereksperimen; mereka mengeksekusi rencana yang sudah dilihat semua orang. Kejutan di set berkurang, jadwal lebih terjaga, dan budget berhenti bocor ke lembur.",
+        "Teknologi ini juga bekerja diam-diam di pasca-produksi: transkrip otomatis untuk rekaman dokumenter berjam-jam, seleksi otomatis yang mengangkat take-take terkuat, dan perangkat pembersih yang mengambil alih bagian membosankan dari rotoscoping dan penghapusan objek. Editor menghabiskan lebih sedikit waktu mengurus material, dan lebih banyak waktu untuk keputusan yang benar-benar membentuk cerita.",
+        "Semua ini tidak menggantikan craft. Algoritma bisa mengusulkan seratus komposisi, tapi ia tidak tahu kenapa satu frame membuat penonton menahan napas. Selera, timing, dan kepekaan emosi tetap pekerjaan manusia. Studio yang paling diuntungkan dari AI memperlakukannya seperti peralatan bagus lainnya — ia yang mengangkat beban berat, supaya manusia bisa mengangkat maknanya.",
+        "Aturan yang kami pegang sederhana: AI boleh mempercepat proses, tapi tidak pernah menandatangani karya. Setiap frame yang keluar dari studio ini tetap melewati mata manusia, penilaian manusia, dan rasa cerita manusia."
+      ]
+    },
+    "production-house-streaming-era": {
+      title: "Rumah Produksi di Era Streaming: Apa yang Brand Harapkan Sekarang",
+      excerpt: "Satu film utama saja tidak lagi cukup. Platform streaming dan linimasa media sosial sudah menulis ulang apa yang brand minta dari rumah produksi — begini perubahan pekerjaannya.",
+      body: [
+        "Sepuluh tahun lalu, kampanye brand berarti satu iklan televisi dan doa semoga orang sedang menonton. Hari ini kampanye yang sama bisa butuh satu film utama, tiga potongan pendek, versi vertikal untuk media sosial, konten behind-the-scenes, dan foto still — semuanya dari satu hari shooting. Rumah produksi diam-diam berubah jadi studio konten, dan merencanakan banyak format sekaligus kini jadi keahlian intinya.",
+        "Streaming mengubah perilaku penonton lebih dulu. Orang melewati, menggulir, dan memutuskan dalam tiga detik pertama apakah sebuah cerita layak dapat perhatian mereka. Tekanan itu justru mendorong craft maju: pembuka yang lebih kuat, penceritaan yang lebih jernih, dan desain suara yang tetap bekerja di speaker ponsel. Film yang selamat di linimasa biasanya memang film yang dibuat dengan jujur dan baik.",
+        "Budget bergeser, bukan membesar. Brand meminta lebih banyak deliverable dari hari produksi yang sama, dan itu menguntungkan rumah produksi yang merencanakan dengan teliti — satu lokasi didandani tiga gaya, set cahaya yang melayani banyak format, dan sutradara yang menggarap versi vertikal sebagai komposisi sungguhan, bukan crop sisa.",
+        "Pemenang di era ini bukan studio terbesar, tapi yang paling adaptif: tim yang memadukan craft film dengan literasi platform, dan memperlakukan setiap format — layar bioskop atau layar ponsel — sama-sama layak dapat obsesi yang sama terhadap cerita."
+      ]
+    },
+    "choosing-the-right-camera": {
+      title: "Memilih Kamera yang Tepat: Kenapa Sensor Hanya Separuh Cerita",
+      excerpt: "Bagan resolusi jarang menentukan rasa sebuah film. Panduan praktis mencocokkan kamera, lensa, dan cahaya dengan cerita yang sebenarnya ingin kamu sampaikan.",
+      body: [
+        "Setiap produksi dimulai dengan pertanyaan yang sama: pakai kamera apa? Jawaban jujurnya, bodi kamera hanya separuh persamaan. Ukuran sensor memang membentuk depth of field dan perilaku di cahaya rendah, tapi lensa yang menentukan karakter — kelembutan lensa prime lawas, ketajaman klinis lensa modern — dan cahaya menentukan hampir semua sisanya.",
+        "Untuk iklan, dynamic range adalah pahlawan yang tidak terlihat. Adegan yang sanggup menahan detail di jendela terang dan wajah yang berbayang dalam satu frame akan terlihat mahal, berapapun biaya sebenarnya. Karena itu sinematografer berpengalaman sering memilih kamera karena highlight roll-off dan colour science-nya, bukan jumlah pikselnya; penonton merasakan skin tone yang enak jauh sebelum mereka menyadari resolusi.",
+        "Format mengikuti cerita. Sensor besar dengan lensa panjang memampatkan ruang dan mengisolasi subjek — pas untuk film produk yang intim. Perangkat yang lebih kecil dan ringan membiarkan operator bergerak di lokasi nyata seperti kru dokumenter, dan itu yang tepat untuk cerita yang perlu terasa benar. Tidak ada yang lebih baik; keduanya kalimat berbeda dalam bahasa yang sama.",
+        "Aturan praktisnya: pilih kamera setelah storyboard, bukan sebelumnya. Begitu suasana, lokasi, dan gerakan film sudah jelas, alat yang tepat biasanya menyebut namanya sendiri — dan budget yang hemat dari peralatan yang tidak perlu bisa dialihkan ke tempat yang benar-benar dilihat penonton: desain produksi, casting, dan cahaya."
+      ]
+    },
+    "the-invisible-cut": {
+      title: "Potongan yang Tak Terlihat: Bagaimana Ritme Editing Menentukan Rasa Penonton",
+      excerpt: "Tidak ada orang keluar bioskop sambil memuji potongan gambarnya — dan justru itu intinya. Di ruang edit, ritme adalah bahasa emosi yang tersembunyi.",
+      body: [
+        "Editing adalah satu-satunya craft dalam pembuatan film yang berhasil justru dengan menghilang. Saat sebuah potongan bekerja, penonton merasakan tawa, kaget, atau sesak di tenggorokan — tidak pernah sambungan yang menyebabkannya. Material editor yang sesungguhnya bukan footage; melainkan perhatian penonton, yang dipinjam detik demi detik dan bisa dihormati atau disia-siakan.",
+        "Ritme dibangun dari keputusan-keputusan kecil. Tahan shot reaksi enam frame lebih lama dan sebuah lelucon mendarat; pangkas sedikit dan adegan terasa terburu-buru. Adegan kejar-kejaran tidak jadi lebih cepat karena dipotong cepat, tapi karena potongannya jatuh di atas gerakan sehingga mata tidak perlu mulai ulang. Editor musik memahami ini secara naluriah: potongan sudah punya tempo jauh sebelum musiknya datang.",
+        "Peralatan modern mengubah mekaniknya — timeline menampung seribu take, dan logging AI bisa menemukan satu senyuman di footage berjam-jam — tapi penilaiannya tidak berubah. Editor tetap menonton film seperti penonton akan menontonnya: segar, tidak sabaran, dan emosional. Setiap putaran di timeline adalah gladi resik perasaan orang lain.",
+        "Pujian terbaik yang bisa diterima sebuah edit adalah keheningan soal editing itu sendiri. Kalau penonton membicarakan ceritanya dalam perjalanan pulang, craft yang tak terlihat itu sudah melakukan tugasnya."
+      ]
+    },
+    "color-is-a-character": {
+      title: "Warna Adalah Karakter: Bagaimana Grading Membentuk Emosi Sebuah Adegan",
+      excerpt: "Sebelum satu kata dialog terdengar, warna sudah memberi tahu penonton bagaimana harus merasa. Mengintip ruang grading, tempat suhu emosi sebuah film ditentukan.",
+      body: [
+        "Tonton still sebuah film dengan suara dimatikan dan ceritanya tetap berbicara — lewat warna. Kuning keemasan yang hangat menjanjikan kenyamanan dan nostalgia; biru pudar menyiratkan jarak atau duka; satu jaket merah di tengah kerumunan abu-abu adalah kalimat yang langsung dibaca penonton. Color grading adalah tempat keputusan-keputusan itu dibuat dengan sengaja, frame demi frame.",
+        "Prosesnya dimulai jauh sebelum ruang grading. Sinematografer mengekspos gambar demi kepentingan grade, menjaga highlight dan shadow supaya colorist punya ruang untuk memahat. Di set, show LUT memberi semua orang pratinjau suasana yang dituju — grade final kemudian menyempurnakan janji itu, bukan menciptakan janji baru.",
+        "Grade yang baik tidak terlihat, sama seperti editing yang baik. Skin tone tetap jujur, adegan malam tetap terbaca, dan dunia film terasa konsisten dari frame pertama sampai terakhir. Saat film brand perlu terasa premium, atau dokumenter perlu terasa benar, biasanya grade-lah — bukan kameranya — yang mengantarkan rasa itu.",
+        "Pada akhirnya warna berperilaku seperti karakter: ia punya watak, ia berkembang sepanjang cerita, dan penonton mengingat perasaan yang ia berikan lama setelah mereka lupa jalan ceritanya."
+      ]
+    },
+    "sound-design-half-the-film": {
+      title: "Separuh Film yang Tak Pernah Kamu Lihat: Kenapa Desain Suara Menggendong Gambar",
+      excerpt: "Pejamkan mata di dalam bioskop dan filmnya tetap berjalan. Dari langkah kaki sampai keheningan itu sendiri, desain suara membangun dunia yang tidak bisa ditunjukkan kamera.",
+      body: [
+        "Ada pepatah di pasca-produksi: penonton memaafkan gambar yang agak lembut, tapi tidak pernah memaafkan suara yang buruk. Gambar memberi tahu penonton ke mana harus melihat; suara memberi tahu mereka bagaimana rasanya berada di sana — beratnya sebuah pintu, besarnya sebuah ruangan, jarak kereta yang mendekat.",
+        "Desain suara dibangun berlapis-lapis. Dialog membawa informasi, tapi dunia di sekelilingnya dikonstruksi: langkah kaki direkam langkah demi langkah di studio foley, atmosfer dikumpulkan dari lokasi sungguhan, dan efek rancangan untuk semua yang tidak bisa disediakan kenyataan. Gerbong kereta dalam adegan yang tenang bisa berisi empat puluh suara terpisah, masing-masing ditempatkan untuk dirasakan, bukan disadari.",
+        "Keheningan adalah alat paling tajam milik desainer suara. Menjatuhkan dunia ke nyaris-sunyi sebelum sebuah pengungkapan membuat penonton mencondongkan badan di kursinya — trik yang tidak bisa ditiru gerakan kamera manapun. Di iklan, prinsip yang sama bekerja dalam miniatur: bunyi klik tutup botol, desis tuangan, dicampur pas cukup keras untuk memancing selera.",
+        "Saat menonton berpindah ke ponsel dan laptop, craft ini justru makin penting. Mix yang selamat di speaker kecil — dialog jernih, dinamika yang disengaja, emosi yang dibawa frekuensi rendah yang terasa di dada — adalah pembeda antara film yang sekadar ditonton dan film yang benar-benar dialami."
+      ]
+    }
+  };
+  /* Language-aware article accessors — ID reads ARTICLES_ID, EN reads ARTICLES */
+  function artLoc(id){ return curLang === 'id' ? (ARTICLES_ID[id] || null) : null; }
+  function artTitle(id){ var l = artLoc(id); return l ? l.title : ARTICLES[id].title; }
+  function artExcerpt(id){ var l = artLoc(id); return l ? l.excerpt : (ARTICLES[id].excerpt || ''); }
+  function artBody(id){ var l = artLoc(id); return l ? l.body : ARTICLES[id].body; }
+  /* The English excerpts live only in the static markup — capture them once
+     from the cards / archive rows so EN mode can restore them exactly */
+  document.querySelectorAll('.art-card[data-article], .arch-row[data-article]').forEach(function(el){
+    var a = ARTICLES[el.getAttribute('data-article')];
+    if (!a || a.excerpt) return;
+    var ex = el.querySelector('.a-excerpt, .r-excerpt');
+    if (ex) a.excerpt = ex.textContent.trim();
+  });
   var reader = document.getElementById('articleReader');
   var readerImg = document.getElementById('readerImg');
   var readerCat = document.getElementById('readerCat');
@@ -2872,15 +2986,15 @@
     readerKickerCat.textContent = catLabel(a.cat);
     readerDate.textContent = a.date;
     readerRead.textContent = readLabel(a.read);
-    readerTitle.textContent = a.title;
+    readerTitle.textContent = artTitle(id);
     readerText.innerHTML = '';
-    a.body.forEach(function(par){
+    artBody(id).forEach(function(par){
       var p = document.createElement('p');
       p.textContent = par;
       readerText.appendChild(p);
     });
     var nextId = ARTICLE_ORDER[(ARTICLE_ORDER.indexOf(id) + 1) % ARTICLE_ORDER.length];
-    readerNextTitle.textContent = ARTICLES[nextId].title;
+    readerNextTitle.textContent = artTitle(nextId);
     readerNext.setAttribute('data-next', nextId);
     reader.scrollTop = 0;
   }
@@ -3027,12 +3141,14 @@
   setTimeout(function(){ clearInterval(rvTimer); }, 20000);
   revealCheck();
 
-  /* ============ MULTI-LANGUAGE — EN / ID (option-1 scope) ============
-     Only the main UI text translates: navigation, section eyebrows &
-     headlines, About & Deliver copy, labels and buttons, article meta.
+  /* ============ MULTI-LANGUAGE — EN / ID ============
+     The UI text translates: navigation, section eyebrows &
+     headlines, About & Deliver copy, labels and buttons, article meta —
+     and article titles, excerpts and full bodies as well (the Indonesian
+     versions live in ARTICLES_ID, paired by article id).
      Deliberately untouched in both languages: the hero banner ("We make …"),
      the About tagline panel, official film/work titles, brand & partner
-     names, people & credits, award names, addresses, article bodies,
+     names, people & credits, award names, addresses,
      statistic numbers and article dates. The choice persists in
      localStorage and <html lang> follows it. */
   var I18N = {
@@ -3175,7 +3291,7 @@
       "cat.ai":"AI & Pembuatan Film", "cat.industry":"Industri", "cat.camera":"Kamera", "cat.editing":"Penyuntingan", "cat.post":"Pasca-Produksi", "cat.sound":"Tata Suara", "cat.directing":"Penyutradaraan", "cat.cine":"Sinematografi",
       "read.5":"5 menit baca", "read.4":"4 menit baca",
       "art.read":"Baca Artikel", "art.more":"Artikel Lainnya",
-      "art.featured.aria":"Baca artikel: AI in the Director's Toolkit",
+      "art.featured.aria":"Baca artikel: AI di Kotak Peralatan Sutradara",
       "arch.kicker":"Artikel — <b>Arsip</b>", "arch.back":"Kembali",
       "arch.title":"Semua <b>Artikel.</b>",
       "arch.sub":"Semua catatan dari studio tentang craft dan teknologi pembuatan film — industrinya, kameranya, editnya, dan alat-alat yang mengubah cara film dibuat.",
@@ -3257,13 +3373,33 @@
     });
     /* Commercial works grid (incl. the More toggle label) re-renders in the active language */
     applyWorkVisibility(false);
-    /* An open article keeps its place; only its meta labels refresh */
+    /* An open article keeps its place; its meta, title, body and the Next
+       Article title re-render in the active language */
     if (currentArticle){
       var art = ARTICLES[currentArticle];
       readerCat.textContent = catLabel(art.cat);
       readerKickerCat.textContent = catLabel(art.cat);
       readerRead.textContent = readLabel(art.read);
+      readerTitle.textContent = artTitle(currentArticle);
+      readerText.innerHTML = '';
+      artBody(currentArticle).forEach(function(par){
+        var p = document.createElement('p');
+        p.textContent = par;
+        readerText.appendChild(p);
+      });
+      var nxId = readerNext.getAttribute('data-next');
+      if (nxId && ARTICLES[nxId]) readerNextTitle.textContent = artTitle(nxId);
     }
+    /* Article cards (featured + main three) and archive rows show their
+       titles and excerpts in the active language */
+    document.querySelectorAll(".art-card[data-article], .arch-row[data-article]").forEach(function(el){
+      var aid = el.getAttribute("data-article");
+      if (!ARTICLES[aid]) return;
+      var h = el.querySelector("h3");
+      if (h) h.textContent = artTitle(aid);
+      var ex = el.querySelector(".a-excerpt, .r-excerpt");
+      if (ex) ex.textContent = artExcerpt(aid);
+    });
     /* Archive result count follows the active language */
     updateArchCount();
   }
