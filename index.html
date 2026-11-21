@@ -1429,16 +1429,18 @@
   /* VISUALKAN — outline treatment like STORY, but a white edge so it
      stays legible on the CTA's black background (hollow fill) */
   .cta h2 .brand-word{position:relative;color:transparent;-webkit-text-stroke:.035em #fff;padding:0 .07em;margin:0 -.07em}
-  /* The CHEMISTRY block sweep, applied verbatim to VISUALKAN — a
-     duplicate of the word (solid black text on a white background)
-     stacked exactly on top of the outline base and revealed by the
-     same clip-path, driven by the very same hlBlock keyframes, cycle,
-     duration and easing as .hl in the About tagline panel, and gated
-     on the headline's .in reveal class just as CHEMISTRY is gated on
-     its panel's. Wherever the block has passed, the glyphs read solid
-     black on white while the still-uncovered part stays white
-     outline on the black CTA — the boundary slices through glyphs at
-     the block's moving edge. Outside the sweep the duplicate is
+  /* The CHEMISTRY sweep rhythm, applied to VISUALKAN — but with NO
+     block behind the letters: a duplicate of the word in solid-filled
+     glyphs (no background at all) stacked exactly on top of the
+     outline base and revealed by the same clip-path, driven by the
+     very same hlBlock keyframes, cycle, duration and easing as .hl
+     in the About tagline panel, and gated on the headline's .in
+     reveal class just as CHEMISTRY is gated on its panel's. Wherever
+     the sweep has passed, the glyphs read solid white fill while the
+     still-uncovered part stays white outline on the black CTA — a
+     wave of fill flowing through the letters, the boundary slicing
+     through glyphs at the clip's moving edge, with no rectangle
+     behind the text at any point. Outside the sweep the duplicate is
      clipped away entirely, so the word is plain outline again. The
      duplicate carries the base word's stroke width in its own fill
      colour so its silhouette matches the outline's exactly (CHEMISTRY
@@ -1446,7 +1448,7 @@
   .cta h2 .brand-word::after{
     content:attr(data-text);
     position:absolute;inset:0;padding:0 .07em;box-sizing:border-box;
-    background:#fff;color:var(--black);-webkit-text-fill-color:var(--black);-webkit-text-stroke:.035em var(--black);
+    color:#fff;-webkit-text-fill-color:#fff;-webkit-text-stroke:.035em #fff;
     text-transform:uppercase;white-space:nowrap;pointer-events:none;
     clip-path:inset(0 100% 0 0);will-change:clip-path;
   }
@@ -1799,9 +1801,9 @@
   html[data-theme="dark"] .cta .eyebrow{color:#6E6E68}
   html[data-theme="dark"] .cta .eyebrow::before{background:#0B0B0B}
   html[data-theme="dark"] .cta h2 .brand-word{color:transparent;-webkit-text-stroke:.035em #0B0B0B}
-  /* VISUALKAN sweep inverts exactly like CHEMISTRY in dark mode:
-     black block, covered glyphs read solid white */
-  html[data-theme="dark"] .cta h2 .brand-word::after{background:#0B0B0B;color:#fff;-webkit-text-fill-color:#fff;-webkit-text-stroke:.035em #fff}
+  /* VISUALKAN sweep inverts in dark mode: no block either — the
+     swept glyphs read as solid black fill over the black outline */
+  html[data-theme="dark"] .cta h2 .brand-word::after{color:#0B0B0B;-webkit-text-fill-color:#0B0B0B;-webkit-text-stroke:.035em #0B0B0B}
   html[data-theme="dark"] .cta .sub{color:#55554F}
   html[data-theme="dark"] .btn-white{background:#0B0B0B;color:#fff;border-color:#0B0B0B}
   html[data-theme="dark"] .btn-white:hover{background:#2A2A2A;border-color:#0B0B0B;color:#fff}
