@@ -1729,7 +1729,7 @@
           <div class="work-meta">
             <div class="client">Djarum Coklat — TVC</div>
             <h3>Jingle Djarum Coklat — Versi Nusa Tenggara Timur</h3>
-            <p class="talent">Talent: Anji, Budi Cilok &amp; Mely Mono</p>
+            <p class="talent"><span data-i18n="talent.label">Talent:</span> Anji, Budi Cilok &amp; Mely Mono</p>
             <span class="watch">Watch on YouTube →</span>
           </div>
         </a>
@@ -1743,7 +1743,7 @@
           <div class="work-meta">
             <div class="client">Djarum Coklat — TVC</div>
             <h3>Jingle Djarum Coklat — Versi Jawa Barat</h3>
-            <p class="talent">Talent: Rosemary</p>
+            <p class="talent"><span data-i18n="talent.label">Talent:</span> Rosemary</p>
             <span class="watch">Watch on YouTube →</span>
           </div>
         </a>
@@ -2412,12 +2412,12 @@
   var hbDots = banner.querySelectorAll('.hb-dot');
   var hbCap = document.getElementById('hbCap');
   var HB = [
-    { meta:'TVC — Djarum Coklat', title:'Jingle Djarum Coklat — Versi Nusa Tenggara Timur', href:'https://www.youtube.com/watch?v=Q_lV3GYRi08', label:'Watch Jingle Djarum Coklat — Versi Nusa Tenggara Timur on YouTube' },
-    { meta:'Film — Collaboration with KAI', title:'Pulang', href:'#works', label:'See Pulang in Selected Films',
+    { meta:'TVC — Djarum Coklat', title:'Jingle Djarum Coklat — Versi Nusa Tenggara Timur', href:'https://www.youtube.com/watch?v=Q_lV3GYRi08', label:'Watch Jingle Djarum Coklat — Versi Nusa Tenggara Timur on YouTube', labelId:'Tonton Jingle Djarum Coklat — Versi Nusa Tenggara Timur di YouTube' },
+    { meta:'Film — Collaboration with KAI', title:'Pulang', href:'#works', label:'See Pulang in Selected Films', labelId:'Lihat Pulang di Film Pilihan',
       award:{ top:'Best Film', mid:'TVRI Jawa Barat', year:'2023', sub:'Best Cinematographer — 2023' } },
-    { meta:'Digital — LA Ice', title:'LA Ice — Ramadan Kareem', href:'https://www.youtube.com/watch?v=9I89kiK_KHs', label:'Watch LA Ice — Ramadan Kareem on YouTube' },
-    { meta:'TVC — Bank Mandiri', title:'Bank Mandiri — Transaksi Wajib 6 Digit', href:'https://www.youtube.com/watch?v=Y0fmxXN8yp0', label:'Watch Bank Mandiri — Transaksi Wajib 6 Digit on YouTube' },
-    { meta:'Film — Collaboration with KAI', title:'Ruang Tunggu', href:'https://www.youtube.com/watch?v=FkUT_0H8ZCY', label:'Watch Ruang Tunggu — the KAI short film on YouTube',
+    { meta:'Digital — LA Ice', title:'LA Ice — Ramadan Kareem', href:'https://www.youtube.com/watch?v=9I89kiK_KHs', label:'Watch LA Ice — Ramadan Kareem on YouTube', labelId:'Tonton LA Ice — Ramadan Kareem di YouTube' },
+    { meta:'TVC — Bank Mandiri', title:'Bank Mandiri — Transaksi Wajib 6 Digit', href:'https://www.youtube.com/watch?v=Y0fmxXN8yp0', label:'Watch Bank Mandiri — Transaksi Wajib 6 Digit on YouTube', labelId:'Tonton Bank Mandiri — Transaksi Wajib 6 Digit di YouTube' },
+    { meta:'Film — Collaboration with KAI', title:'Ruang Tunggu', href:'https://www.youtube.com/watch?v=FkUT_0H8ZCY', label:'Watch Ruang Tunggu — the KAI short film on YouTube', labelId:'Tonton Ruang Tunggu — film pendek KAI di YouTube',
       award:{ top:'Best Director', mid:'Bali International Film Festival', year:'2024', sub:'' } }
   ];
   /* Award badge — laurel branches drawn once, badge content follows the active slide */
@@ -2449,7 +2449,7 @@
     hbDots.forEach(function(d, i){ d.classList.toggle('on', i === hbIdx); d.classList.toggle('done', i < hbIdx); });
     var d = HB[hbIdx];
     hbCap.setAttribute('href', d.href);
-    hbCap.setAttribute('aria-label', d.label);
+    hbCap.setAttribute('aria-label', (curLang === 'id' && d.labelId) ? d.labelId : d.label);
     if (d.href.charAt(0) === '#') { hbCap.removeAttribute('target'); }
     else { hbCap.setAttribute('target', '_blank'); }
     if (d.award) {
@@ -3156,6 +3156,8 @@
       "nav.about":"About", "nav.works":"Works", "nav.deliver":"Deliver", "nav.onset":"On Set", "nav.articles":"Articles", "nav.clients":"Clients", "nav.contact":"Contact",
       "mnav.works.sub":"14 films", "mnav.deliver.sub":"Principles", "mnav.onset.sub":"Behind the scenes", "mnav.articles.sub":"News & insights", "mnav.clients.sub":"Trusted by", "mnav.contact.sub":"Book a meeting",
       "header.talk":"Let's Talk",
+      "doc.title":"Visualkan — Films · Commercials · Stories", "doc.desc":"PT Visualkan Kreasi Indonesia — a film production house for brands and stories. Films, commercials and stories from Jakarta & Bandung.",
+      "mail.portfolio":"Portfolio Request — Visualkan", "mail.meeting":"Book a Meeting — Visualkan", "talent.label":"Talent:",
       "clients.eyebrow":"Brands That Work With Us",
       "about.eyebrow":"About — The Studio",
       "about.h2":"A production house for <b>stories that stay.</b>",
@@ -3234,7 +3236,9 @@
     id: {
       "nav.about":"Tentang", "nav.works":"Karya", "nav.deliver":"Prinsip", "nav.onset":"Di Set", "nav.articles":"Artikel", "nav.clients":"Klien", "nav.contact":"Kontak",
       "mnav.works.sub":"14 film", "mnav.deliver.sub":"Prinsip", "mnav.onset.sub":"Di balik layar", "mnav.articles.sub":"Berita & wawasan", "mnav.clients.sub":"Dipercaya oleh", "mnav.contact.sub":"Jadwalkan pertemuan",
-      "header.talk":"Hubungi Kami",
+      "header.talk":"Ngobrol Dulu",
+      "doc.title":"Visualkan — Rumah Produksi Film & Iklan | Jakarta · Bandung", "doc.desc":"PT Visualkan Kreasi Indonesia — rumah produksi film untuk brand dan cerita. Film, iklan, dan cerita dari Jakarta & Bandung.",
+      "mail.portfolio":"Permintaan Portofolio — Visualkan", "mail.meeting":"Jadwalkan Pertemuan — Visualkan", "talent.label":"Pemeran:",
       "clients.eyebrow":"Brand yang Bekerja Sama dengan Kami",
       "about.eyebrow":"Tentang — Studio",
       "about.h2":"Rumah produksi untuk <b>cerita yang melekat.</b>",
@@ -3245,12 +3249,12 @@
       "deliver.q.aria":"Cerita apa yang ingin kamu sampaikan",
       "deliver.side":"Setiap proyek dimulai dengan satu pertanyaan. Empat prinsip menjawabnya — di balik setiap frame yang kami hasilkan.",
       "deliver.circle.aria":"Mulai ceritamu — menuju kontak",
-      "pillar.1.t":"Emosi", "pillar.1.d":"Kami merangkai cerita yang beresonansi dalam, menciptakan hubungan emosional antara brand dan audiensnya.",
-      "pillar.2.t":"Inspirasi", "pillar.2.d":"Kami mengubah ide menjadi narasi yang kuat — menginspirasi tindakan dan meninggalkan kesan yang bertahan lama.",
+      "pillar.1.t":"Emosi", "pillar.1.d":"Kami merangkai cerita yang membekas lama, menciptakan hubungan emosional antara brand dan audiensnya.",
+      "pillar.2.t":"Menginspirasi", "pillar.2.d":"Kami mengubah ide menjadi narasi yang kuat — menginspirasi tindakan dan meninggalkan kesan yang bertahan lama.",
       "pillar.3.t":"Eksekusi", "pillar.3.d":"Dari konsep hingga selesai, kami menghadirkan produksi yang sempurna dengan presisi, kreativitas, dan perhatian pada setiap detail.",
-      "pillar.4.t":"Penceritaan", "pillar.4.d":"Setiap frame menceritakan sebuah kisah. Kami menghidupkan visi Anda melalui narasi yang memikat dan visual yang memukau.",
+      "pillar.4.t":"Penceritaan", "pillar.4.d":"Setiap frame menceritakan sebuah kisah. Kami menghidupkan visi kamu melalui narasi yang memikat dan visual yang memukau.",
       "works.eyebrow":"Film Pilihan — Sorotan Portofolio",
-      "works.h2":"Film yang <b>berkelana.</b>",
+      "works.h2":"Film yang <b>Menembus Batas.</b>",
       "works.drag":"Geser", "car.prev.aria":"Film sebelumnya", "car.next.aria":"Film berikutnya", "car.track.aria":"Carousel film pilihan — geser atau scroll ke samping",
       "film.meta.1":"Kolaborasi — KAI · Drama Keluarga · 20 mnt",
       "film.meta.2":"Kolaborasi — KAI · Drama Keluarga · 36 mnt",
@@ -3269,24 +3273,24 @@
       "car.unit":"/ 14 film", "car.label":"Film Pilihan",
       "works.more":"Minta <span class=\"pf-word\">Portofolio</span> lainnya <span aria-hidden=\"true\">→</span>",
       "comm.figcap":"Di Set — Produksi Komersial", "comm.eyebrow":"Karya Komersial",
-      "comm.h2":"Iklan yang <b>menghentikan scroll.</b>",
-      "comm.p":"TVC dan iklan digital untuk brand nasional — jingle yang berakar pada budaya lokal, cerita produk untuk linimasa media sosial, dan film peringatan untuk BUMN. Sebelas karya pilihan, langsung dari showreel kami.",
+      "comm.h2":"Iklan yang <b>Menghentikan Jempol.</b>",
+      "comm.p":"TVC dan iklan digital untuk brand nasional — jingle yang berakar pada budaya lokal, cerita produk untuk linimasa media sosial, dan film peringatan hari jadi untuk BUMN. Sebelas karya pilihan, langsung dari showreel kami.",
       "comm.more":"Lihat Showreel",
       "reel.h2":"Reel <b>komersial</b> kami.",
       "filter.all":"Semua", "watch.yt":"Tonton di YouTube →",
       "stats.eyebrow":"Visualkan dalam Angka",
       "stats.h2":"<span class=\"sw\" style=\"--d:.05s\">Film</span> <span class=\"sw\" style=\"--d:.16s\">kami.</span> <b><span class=\"sw\" style=\"--d:.3s\">Ceritamu.</span></b>",
       "stats.l1":"Serial", "stats.l2":"Film Pendek", "stats.l3":"Dokumenter", "stats.l4":"Penghargaan", "stats.l5":"Program Dana Film",
-      "onset.eyebrow":"Di Set — Di Balik Layar",
+      "onset.eyebrow":"Di Balik Layar",
       "onset.cap.a":"Di Lokasi — Set Besar", "onset.cap.b":"Kamera — Bergerak", "onset.cap.c":"Studio — Set Pencahayaan", "onset.cap.d":"Di Set — Adegan Makan Malam",
-      "bts.title":"<span class=\"bts-drift\"><span class=\"bw bw-blend\" style=\"--d:.05s\">Anda</span> <span class=\"bw bw-blend\" style=\"--d:.17s\">akan</span> <span class=\"bw bw-blend\" style=\"--d:.29s\">berkolaborasi</span> <span class=\"bw bw-with\" style=\"--d:.45s\">dengan</span></span>",
-      "bts.sub":"Bukan daftar nama — melainkan set yang bekerja. Sutradara, kamera, pencahayaan, dan kru, berdampingan dari setup pertama hingga take terakhir.",
+      "bts.title":"<span class=\"bts-drift\"><span class=\"bw bw-blend\" style=\"--d:.05s\">Kamu</span> <span class=\"bw bw-blend\" style=\"--d:.17s\">akan</span> <span class=\"bw bw-blend\" style=\"--d:.29s\">berkolaborasi</span> <span class=\"bw bw-with\" style=\"--d:.45s\">dengan</span></span>",
+      "bts.sub":"Bukan daftar nama — ini set sungguhan yang sedang bekerja.",
       "bts.meta.1":"<b>Di balik layar</b> — Portofolio Umum",
       "bts.meta.2":"Set nyata · Kru nyata · Jakarta — Bandung",
       "partners.eyebrow":"Mitra Strategis",
       "art.eyebrow":"Artikel — Berita & Wawasan",
       "art.h2":"Dari Dunia <b>Produksi.</b>",
-      "art.side":"Catatan berkala dari studio tentang seni dan teknologi pembuatan film — industrinya, kameranya, penyuntingannya, dan perangkat yang mengubah cara film dibuat.",
+      "art.side":"Catatan berkala dari studio tentang craft dan teknologi pembuatan film — industrinya, kameranya, penyuntingannya, dan perangkat yang mengubah cara film dibuat.",
       "art.flag":"Unggulan",
       "cat.ai":"AI & Pembuatan Film", "cat.industry":"Industri", "cat.camera":"Kamera", "cat.editing":"Penyuntingan", "cat.post":"Pasca-Produksi", "cat.sound":"Tata Suara", "cat.directing":"Penyutradaraan", "cat.cine":"Sinematografi",
       "read.5":"5 menit baca", "read.4":"4 menit baca",
@@ -3296,14 +3300,14 @@
       "arch.title":"Semua <b>Artikel.</b>",
       "arch.sub":"Semua catatan dari studio tentang craft dan teknologi pembuatan film — industrinya, kameranya, editnya, dan alat-alat yang mengubah cara film dibuat.",
       "reader.kicker":"Artikel", "reader.all":"Semua Artikel",
-      "reader.byline":"Oleh <b>Visualkan Editorial</b>", "reader.next":"Artikel Berikutnya",
+      "reader.byline":"Oleh <b>Redaksi Visualkan</b>", "reader.next":"Artikel Berikutnya",
       "cta.eyebrow":"Kontak — Jadwalkan Pertemuan",
       "cta.h2":"Ceritakan kisahmu.<b>Biar kami yang <span class=\"brand-word\">VISUALKAN</span>.</b>",
-      "cta.sub":"Cukup satu email. Ceritakan kisah yang ingin Anda sampaikan — sebuah film, iklan, atau serial — dan kami akan menjawab dengan arahan, bukan formulir.",
+      "cta.sub":"Cukup satu email. Ceritakan kisah yang ingin kamu sampaikan — sebuah film, iklan, atau serial — dan kami balas dengan arahan yang jelas, bukan formulir.",
       "cta.book":"Jadwalkan Pertemuan", "cta.works":"Lihat Karya Kami ↑", "cta.wa":"Diskusikan via WhatsApp",
       "cta.wa.aria":"Diskusikan via WhatsApp — 0856-2411-0857",
       "wa.float":"Diskusikan Ceritamu", "wa.float.aria":"Diskusikan Ceritamu via WhatsApp — 0856-2411-0857",
-      "cta.who":"Kontak Anda", "cta.role":"Produser",
+      "cta.who":"Kontak kamu", "cta.role":"Produser",
       "footer.brand":"PT Visualkan Kreasi Indonesia<br />Film, Iklan, dan Cerita",
       "f.works.films":"Film", "f.works.series":"Serial", "f.works.doc":"Dokumenter",
       "f.company.h":"Perusahaan", "f.company.deliver":"Yang Kami Berikan", "f.loc.h":"Lokasi",
@@ -3359,6 +3363,17 @@
     /* The On Set eyebrow's letters were just replaced as plain text —
        re-split them so the staggered-letter markup survives the switch */
     splitOnsetEyebrow();
+    /* Document title & meta description follow the language */
+    if (d["doc.title"] != null) document.title = d["doc.title"];
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && d["doc.desc"] != null) metaDesc.setAttribute("content", d["doc.desc"]);
+    /* Mailto subjects follow the language (address unchanged) */
+    var mailPf = document.querySelector("a.more-portfolio");
+    if (mailPf && d["mail.portfolio"] != null) mailPf.setAttribute("href", "mailto:halo@visualkan.id?subject=" + encodeURIComponent(d["mail.portfolio"]));
+    var mailMeet = document.querySelector('a[data-i18n="cta.book"]');
+    if (mailMeet && d["mail.meeting"] != null) mailMeet.setAttribute("href", "mailto:halo@visualkan.id?subject=" + encodeURIComponent(d["mail.meeting"]));
+    /* Hero play-link label follows the language for the active slide */
+    hbShow(hbIdx);
     /* WhatsApp — same number (6285624110857), prefilled greeting follows the language */
     var waHref = "https://wa.me/6285624110857?text=" + encodeURIComponent(WA_MSG[lang]);
     document.querySelectorAll("a[href^=\"https://wa.me/\"]").forEach(function(a){ a.setAttribute("href", waHref); });
